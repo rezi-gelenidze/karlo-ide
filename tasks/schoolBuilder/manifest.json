@@ -1,5 +1,6 @@
 {
     "worlds": ["school.w"],
+    "defaultWorld": "school.w",
     "beepers": "INFINITY"
 }
   

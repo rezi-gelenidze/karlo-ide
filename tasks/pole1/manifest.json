@@ -1,5 +1,6 @@
 {
     "worlds": ["pole.w"],
+    "defaultWorld": "pole.w",
     "beepers": 0
 }
   

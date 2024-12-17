@@ -1,5 +1,6 @@
 {
     "worlds": ["4.4.w"],
+    "defaultWorld": "4.4.w",
     "beepers": 4
 }
   

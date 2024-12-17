@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        "beeperCollector",
+        "beeperLineBug",
+        "beeperLineSolved",
+        "cornerBeepers",
+        "cornerFiveBeepers",
+        "demo",
+        "elections",
+        "fixBridge",
+        "foodCollect",
+        "invertBeepers",
+        "moveToWall",
+        "placeBeepers",
+        "playground",
+        "pole1",
+        "pole2",
+        "pole3",
+        "pothole",
+        "schoolBuilder"
+    ]
+}

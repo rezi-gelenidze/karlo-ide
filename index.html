@@ -41,14 +41,19 @@
           }
         }
 
-        async function loadTask(task, world) {
+        async function loadTask(task) {
           const basePath = `./tasks/${task}`;
           const worldsContainer = document.getElementById("ideWorlds");
 
           // Fetch the manifest file
           const manifest = await fetchFile(`${basePath}/manifest.json`);
+
+          // parse manifest file
           const worlds = JSON.parse(manifest).worlds;
           const beepers = JSON.parse(manifest).beepers == "INFINITY" ? Infinity : JSON.parse(manifest).beepers;
+
+          // load world name and cut .w extension
+          const defaultWorld = JSON.parse(manifest).defaultWorld.slice(0, -2);
 
 
           const starterCode = await fetchFile(`${basePath}/starter.py`);
@@ -62,19 +67,18 @@
 
           // Load starter code and default world
           // Initialize the IDE with the fetched files
-          ideInit(starterCode || "", world, folderName=task, initialBeepers=beepers);
+          ideInit(starterCode || "", defaultWorld, folderName=task, initialBeepers=beepers);
           
         }
 
         // Load task with folder and default world
         const urlParams = new URLSearchParams(window.location.search);
         const task = urlParams.get("task");
-        const world = urlParams.get("world");
  
-        if (task && world) 
-          loadTask(task, world);
+        if (task) 
+          loadTask(task);
         else
-          alert("გთხოვთ მიუთითოთ task და world ბმულის პარამეტრები!");
+          alert("გთხოვთ მიუთითოთ task პარამეტრი!");
       </script>
     </div>
   </body>

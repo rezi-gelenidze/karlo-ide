@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karlo IDE</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      #taskList {
+        list-style-type: none;
+        padding: 0;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+
+      #taskList li {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        font-weight: bold;
+        margin: 5px 0;
+        padding: 10px 15px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        cursor: pointer; /* Makes it clear that the item is clickable */
+      }
+
+      #taskList li:hover {
+        transform: translateY(-3px);
+        background-color: #f0f8ff;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit; /* Inherit color from parent */
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>კარლოს დავალებების კატალოგი</h1>
+    <ul id="taskList">იტვირთება...</ul>
+
+    <script>
+      /**
+       * Fetch the manifest file and render the task list
+       */
+      async function loadTaskCatalog() {
+        const taskListContainer = document.getElementById("taskList");
+
+        try {
+          // Fetch manifest.json from the tasks directory
+          const response = await fetch("./tasks/manifest.json");
+          if (!response.ok) {
+            throw new Error("Failed to load manifest.json");
+          }
+
+          // Parse the manifest.json file
+          const manifest = await response.json();
+
+          // Check if "tasks" exist in manifest
+          if (!manifest.tasks || !Array.isArray(manifest.tasks)) {
+            throw new Error("Invalid manifest structure");
+          }
+
+          // Generate the list of tasks with clickable <li>
+          const tasks = manifest.tasks;
+          const taskItems = tasks
+            .map(
+              (task) =>
+                `<li onclick="window.location.href='/?task=${encodeURIComponent(
+                  task
+                )}'">${task}</li>`
+            )
+            .join("");
+
+          // Render the task list
+          taskListContainer.innerHTML = taskItems;
+        } catch (error) {
+          console.error("Error loading task catalog:", error.message);
+          taskListContainer.innerHTML =
+            "<li>დაფიქსირდა შეცდომა, მოგვიანებით სცადეთ.</li>";
+        }
+      }
+
+      // Load the task catalog when the page loads
+      window.onload = loadTaskCatalog;
+    </script>
+  </body>
+</html>

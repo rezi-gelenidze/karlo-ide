@@ -1,5 +1,6 @@
 {
     "worlds": ["bridge1.w", "bridge2.w", "bridge3.w"],
+    "defaultWorld": "bridge1.w",
     "beepers": "INFINITY"
 }
   

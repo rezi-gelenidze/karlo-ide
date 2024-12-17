@@ -1,5 +1,6 @@
 {
     "worlds": ["democracy1.w", "democracy2.w"],
+    "defaultWorld": "democracy1.w",
     "beepers": 0
 }
   
