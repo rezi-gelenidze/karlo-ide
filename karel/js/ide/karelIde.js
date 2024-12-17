@@ -296,7 +296,7 @@ function KarelIde(
       fileName = document.location.pathname.split("/").pop().split(".")[0];
     }
     // get current html file's own worlds
-    var url = `${PATH_TO_ROOT}/tasks/${fileName}/${worldName}`;
+    var url = `./tasks/${fileName}/${worldName}`;
     loadDoc(url, worldFileLoaded);
   }
 
