@@ -80,13 +80,16 @@
           // Generate the list of tasks with clickable <li>
           const tasks = manifest.tasks;
           const taskItems = tasks
-            .map(
-              (task) =>
-                `<li onclick="window.location.href='/?task=${encodeURIComponent(
-                  task
-                )}'">${task}</li>`
-            )
+            .map((task) => {
+                const url =
+                task === "demo"
+                    ? "/demo.html" // Redirect to demo.html if the task is "demo"
+                    : `/?task=${encodeURIComponent(task)}`; // Default behavior
+
+                return `<li onclick="window.location.href='${url}'">${task}</li>`;
+            })
             .join("");
+
 
           // Render the task list
           taskListContainer.innerHTML = taskItems;
