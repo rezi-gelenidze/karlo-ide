@@ -83,8 +83,8 @@
             .map((task) => {
                 const url =
                 task === "demo"
-                    ? "/demo.html" // Redirect to demo.html if the task is "demo"
-                    : `/?task=${encodeURIComponent(task)}`; // Default behavior
+                    ? "./demo.html" // Redirect to demo.html if the task is "demo"
+                    : `./?task=${encodeURIComponent(task)}`; // Default behavior
 
                 return `<li onclick="window.location.href='${url}'">${task}</li>`;
             })
