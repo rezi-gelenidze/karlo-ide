@@ -17,7 +17,6 @@ function KarelIde(
   initialBeepers
 ) {
   // defaults
-  let PATH_TO_ROOT = "../../";
   let programLang = "python";
   let lang = "en";
 

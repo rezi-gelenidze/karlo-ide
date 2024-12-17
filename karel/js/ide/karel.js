@@ -7,9 +7,6 @@
  * draw method.
  */
 function Karel(canvasModel, codeLanguage, language, initialBeepers) {
-
-  let PATH_TO_ROOT = '../../'
-
   // uses a flag to know if it is loaded
   var that = {
     'isLoaded':false
@@ -159,7 +156,7 @@ function Karel(canvasModel, codeLanguage, language, initialBeepers) {
   }
 
   // load language API
-  let path = PATH_TO_ROOT + "/karel/js/api/" + codeLanguage + '/' + language + ".json"
+  let path = "./karel/js/api/" + codeLanguage + '/' + language + ".json"
   loadDoc(path, function(jsonTxt) {
     var json = JSON.parse(jsonTxt)
     initLanguageAPI(json)
