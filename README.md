@@ -4,6 +4,8 @@
 Karlo IDE is a browser-based **interactive development environment** for solving grid-based programming tasks inspired by Karel the Robot. 
 It allows users to interact with a robot in predefined **worlds** by writing code, running it, and observing the robot's behavior directly in the browser.
 
+Access catalog from [here](https://rezi-gelenidze.github.io/karlo-ide/catalog.html)
+
 ---
 
 ## Project Structure
@@ -43,12 +45,14 @@ To create and add a new task to the IDE, follow these steps:
    ```json
    {
      "worlds": ["world1.w", "world2.w"],
-     "defaultWorld": "world1.w",  // one of the entries of worlds array
-     "beepers": 10  // positive integer of "INFINITY"
+     "defaultWorld": "world1.w",  
+     "beepers": 10
    }
    ```
 
-4. **Update the Global Manifest**:
+   beepers is positive integer of "INFINITY" and defaultWorld is string filename of one of the entries of worlds array
+
+5. **Update the Global Manifest**:
    - Open `tasks/manifest.json`.
    - Add the `TASKNAME` to the `"tasks"` list:
      ```json
