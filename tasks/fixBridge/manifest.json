@@ -1,0 +1,5 @@
+{
+    "worlds": ["bridge1.w", "bridge2.w", "bridge3.w"],
+    "beepers": "INFINITY"
+}
+  

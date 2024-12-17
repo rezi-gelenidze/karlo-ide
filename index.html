@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- Resources -->
+    <script src="../../karel/js/html/imports.js"></script>
+    <script src="../../karel/js/html/ideInit.js"></script>
+  </head>
+
+  <body>
+    <div id="ide">
+      <div id="ideEditorDiv"></div>
+      <div id="ideCanvasDiv">
+        <div id="buttonBar">
+          <button id="ideRunButton">პროგრამის გაშვება</button>
+          <div class="dropdown">
+            <button class="dropbtn">სამყაროს არჩევა</button>
+            <div class="dropdown-content" id="ideWorlds"></div>
+          </div>
+          <div class='slider-wrapper'>
+            <span>ნელი</span>
+            <input type="range" min="2" max="99" step="1" value="50" id='speedSlider'>
+            <span>ჩქარი</span>
+          </div>
+        </div>
+        <canvas id="ideCanvas"></canvas>
+      </div>
+
+      <script>
+        /**
+         * Utility function to fetch a file from a given path.
+         */
+        async function fetchFile(filePath) {
+          try {
+            const response = await fetch(filePath);
+            if (!response.ok) throw new Error(`File not found: ${filePath}`);
+            return await response.text();
+          } catch (error) {
+            console.error(error.message);
+            return null;
+          }
+        }
+
+        async function loadTask(task, world) {
+          const basePath = `./tasks/${task}`;
+          const worldsContainer = document.getElementById("ideWorlds");
+
+          // Fetch the manifest file
+          const manifest = await fetchFile(`${basePath}/manifest.json`);
+          const worlds = JSON.parse(manifest).worlds;
+          const beepers = JSON.parse(manifest).beepers == "INFINITY" ? Infinity : JSON.parse(manifest).beepers;
+
+
+          // Build the dropdown dynamically
+          const worldDropdownLinks = worlds.map((world) => {
+            return `<a href="#">${world.slice(0, -2)}</a>`;
+          });
+
+          worldsContainer.innerHTML = worldDropdownLinks.join("");
+
+          // Load starter code and default world
+          // Initialize the IDE with the fetched files
+          ideInit(starterCode || "", world, folderName=task, initialBeepers=beepers);
+          
+        }
+
+        // Load task with folder and default world
+        const urlParams = new URLSearchParams(window.location.search);
+        const task = urlParams.get("task");
+        const world = urlParams.get("world");
+ 
+        if (task && world) 
+          loadTask(task, world);
+        else
+          alert("გთხოვთ მიუთითოთ task და world ბმულის პარამეტრები!");
+      </script>
+    </div>
+  </body>
+</html>

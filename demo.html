@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- Recourses -->
+    <script src="../../karel/js/html/imports.js"></script>
+    <script src="../../karel/js/html/ideInit.js"></script>
+  </head>
+
+  <body>
+    <div id="ide" class='ide-button-contolled'>
+      <div style='display: none' id="ideEditorDiv"></div>
+      <div id="ideCanvasDiv">
+        <div id="buttonBar" class='action-buttons'>
+          <button id="cmdMove">move()</button>
+          <button id="cmdTurnLeft">turn_left()</button>
+          <button id="cmdPickBeeper">pick_beeper()</button>
+          <button id="cmdPutBeeper">put_beeper()</button>
+          <div style='display: none' id="ideWorlds"><a>2x2</a></div>
+          <div style='display: none' class='slider-wrapper'>
+            <span>ნელი</span>
+            <input type="range" min="2" max="99" step="1" value="50" id='speedSlider'>
+            <span>ჩქარი</span>
+          </div>
+        </div>
+        
+        <canvas id="ideCanvas"></canvas>
+      </div>
+
+      <script>
+        ideInit('', '2x2', folderName='demo', initialBeepers=0);
+      </script>
+    </div>
+  </body>
+</html>
