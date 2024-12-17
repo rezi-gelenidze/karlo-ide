@@ -51,6 +51,8 @@
           const beepers = JSON.parse(manifest).beepers == "INFINITY" ? Infinity : JSON.parse(manifest).beepers;
 
 
+          const starterCode = await fetchFile(`${basePath}/starter.py`);
+
           // Build the dropdown dynamically
           const worldDropdownLinks = worlds.map((world) => {
             return `<a href="#">${world.slice(0, -2)}</a>`;

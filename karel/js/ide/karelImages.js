@@ -59,7 +59,7 @@ function KarelImages() {
 		for (var i = 0; i < imageNames.length; i++) {
 			var imageName = imageNames[i];
 			images[i] = new Image();
-			images[i].src = "../../karel/images/" + imageName;
+			images[i].src = "./karel/images/" + imageName;
 		}
 		interval = setInterval("karelImages.checkLoaded()",500);
 	}
