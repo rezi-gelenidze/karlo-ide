@@ -1,6 +1,0 @@
-{
-    "worlds": ["1x1.w", "3x6.w", "4x4.w", "7x7.w", "8x8.w"],
-    "defaultWorld": "4x4.w",
-    "beepers": "INFINITY"
-}
-  
