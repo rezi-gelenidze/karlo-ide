@@ -1,6 +1,6 @@
 {
     "worlds": ["pothole.w"],
     "defaultWorld": "pothole.w",
-    "beepers": 1
+    "beepers": "INFINITY"
 }
   
