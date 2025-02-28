@@ -1,4 +1,5 @@
 def main():
     while front_is_clear():
-        put_beeper()
+        put()
         move()
+    put()

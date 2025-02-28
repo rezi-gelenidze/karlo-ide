@@ -1,6 +1,6 @@
 def main():
     for i in range(4):
-        put_beeper()
+        put()
         move()
         move()
         move()

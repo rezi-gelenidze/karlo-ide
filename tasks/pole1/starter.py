@@ -1,3 +1,3 @@
-# move(), turn_left(), pick_beeper(), put_beeper()
+# move(), turn_left(), pick(), put()
 def main():
     ...

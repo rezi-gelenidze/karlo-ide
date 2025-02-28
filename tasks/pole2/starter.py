@@ -1,5 +1,5 @@
-# move(), turn_left(), put_beeper(), pick_beeper()
+# move(), turn_left(), put(), pick()
 def main():
     move()
-    pick_beeper()
+    pick()
     move()
