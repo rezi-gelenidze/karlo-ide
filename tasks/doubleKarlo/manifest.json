@@ -1,6 +1,6 @@
 {
     "worlds": ["4.w", "1.w", "8.w"],
     "defaultWorld": "4.w",
-    "beepers": 0
+    "beepers": "INFINITY"
 }
   
